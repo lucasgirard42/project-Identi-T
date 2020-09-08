@@ -34,9 +34,15 @@ class Appointment
      */
     private $staff;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Package::class, mappedBy="appointment")
+     */
+    private $package;
+
     public function __construct()
     {
         $this->staff = new ArrayCollection();
+        $this->package = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -93,6 +99,37 @@ class Appointment
             // set the owning side to null (unless already changed)
             if ($staff->getAppointment() === $this) {
                 $staff->setAppointment(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Package[]
+     */
+    public function getPackage(): Collection
+    {
+        return $this->package;
+    }
+
+    public function addPackage(Package $package): self
+    {
+        if (!$this->package->contains($package)) {
+            $this->package[] = $package;
+            $package->setAppointment($this);
+        }
+
+        return $this;
+    }
+
+    public function removePackage(Package $package): self
+    {
+        if ($this->package->contains($package)) {
+            $this->package->removeElement($package);
+            // set the owning side to null (unless already changed)
+            if ($package->getAppointment() === $this) {
+                $package->setAppointment(null);
             }
         }
 
