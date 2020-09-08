@@ -52,6 +52,11 @@ class Staff
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Appointment::class, inversedBy="staff")
+     */
+    private $appointment;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +142,18 @@ class Staff
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getAppointment(): ?Appointment
+    {
+        return $this->appointment;
+    }
+
+    public function setAppointment(?Appointment $appointment): self
+    {
+        $this->appointment = $appointment;
 
         return $this;
     }
