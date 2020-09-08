@@ -37,4 +37,6 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profile, roles: ROLE_USER }
-        # - { path: ^/staff, roles: ROLE_STAFF}
+       
+    # # enable_authenticator_manager: true
+    # access_denied_url: app_login

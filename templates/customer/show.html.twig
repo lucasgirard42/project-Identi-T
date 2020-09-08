@@ -37,7 +37,11 @@
             </tr>
             <tr>
                 <th>CostumerPicture</th>
-                <td>{{ customer.costumerPicture }}</td>
+                {# <td>{{ customer.costumerPicture }}</td> #}
+                <td><a href="{{ asset('uploads/' ~ customer.costumerPicture) }}">your picture</a><td>
+                <img src="{{ asset('uploads/' ~ customer.costumerPicture) }}" />
+
+                
             </tr>
             <tr>
                 <th>FidelityCard</th>

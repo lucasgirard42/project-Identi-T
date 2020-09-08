@@ -21,7 +21,7 @@ class CustomerController extends AbstractController
 {
     /**
      * @Route("/list", name="customer_index", methods={"GET"})
-     * @isGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function index(CustomerRepository $customerRepository): Response
     {
@@ -55,7 +55,7 @@ class CustomerController extends AbstractController
 
     /**
      * @Route("/new", name="customer_new", methods={"GET","POST"})
-     * @IsGranted("IS_AUTHENTICATED_FULLY")
+     *  @IsGranted("IS_AUTHENTICATED_FULLY")
      */
     public function new(Request $request, SluggerInterface $slugger): Response
     {   
@@ -124,6 +124,7 @@ class CustomerController extends AbstractController
 
     /**
      * @Route("/{id}", name="customer_show", methods={"GET"})
+     *
      */
     public function show(Customer $customer): Response
     {
@@ -134,6 +135,7 @@ class CustomerController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="customer_edit", methods={"GET","POST"})
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
      */
     public function edit(Request $request, Customer $customer): Response
     {

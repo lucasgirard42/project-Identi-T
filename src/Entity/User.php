@@ -86,10 +86,8 @@ class User implements UserInterface
 
         if ($this->getIsAdmin())
         {
-            $roles[] = 'ROLES_ADMIN';
+            $roles[] = 'ROLE_ADMIN';
         }
-
-
         return array_unique($roles);
     }
 

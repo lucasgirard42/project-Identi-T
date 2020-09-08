@@ -28,7 +28,7 @@ class CustomerType extends AbstractType
             ])
             ->add('fidelityCard')
             // ->add('user')
-            ->add('appointment')
+            // ->add('appointment')
         ;
     }
 
