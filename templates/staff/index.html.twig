@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Staff index{% endblock %}
+
+{% block body %}
+    <h1>Staff index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Address</th>
+                <th>StaffPicture</th>
+                <th>Phone</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for staff in staff %}
+            <tr>
+                <td>{{ staff.id }}</td>
+                <td>{{ staff.firstName }}</td>
+                <td>{{ staff.lastName }}</td>
+                <td>{{ staff.address }}</td>
+                <td>{{ staff.staffPicture }}</td>
+                <td>{{ staff.phone }}</td>
+                <td>{{ staff.description }}</td>
+                <td>
+                    <a href="{{ path('staff_show', {'id': staff.id}) }}">show</a>
+                    <a href="{{ path('staff_edit', {'id': staff.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('staff_new') }}">Create new</a>
+{% endblock %}
