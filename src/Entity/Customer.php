@@ -62,6 +62,11 @@ class Customer
      */
     private $user;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Appointment::class, cascade={"persist", "remove"})
+     */
+    private $appointment;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -171,6 +176,18 @@ class Customer
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getAppointment(): ?Appointment
+    {
+        return $this->appointment;
+    }
+
+    public function setAppointment(?Appointment $appointment): self
+    {
+        $this->appointment = $appointment;
 
         return $this;
     }
