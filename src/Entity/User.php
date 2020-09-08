@@ -38,6 +38,11 @@ class User implements UserInterface
      */
     private $isAdmin;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Customer::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $customer;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -126,5 +131,28 @@ class User implements UserInterface
         $this->isAdmin = $isAdmin;
 
         return $this;
+    }
+
+    public function getCustomer(): ?Customer      // ajout fonction dans customercontroller newUser
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer(?Customer $customer): self
+    {
+        $this->customer = $customer;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newUser = null === $customer ? null : $this;
+        if ($customer->getUser() !== $newUser) {
+            $customer->setUser($newUser);
+        }
+
+        return $this;
+    }
+
+    public  function __toString()
+    {
+        return $this->getEmail();
     }
 }

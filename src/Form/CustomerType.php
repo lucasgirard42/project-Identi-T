@@ -6,6 +6,8 @@ use App\Entity\Customer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 
 class CustomerType extends AbstractType
 {
@@ -15,12 +17,17 @@ class CustomerType extends AbstractType
             ->add('gender')
             ->add('firstName')
             ->add('lastName')
-            ->add('birthday')
+            ->add('birthday', BirthdayType::class, [
+                'widget' => 'single_text',
+                'required' => 'false'
+            ])
             ->add('phone')
             ->add('address')
-            ->add('costumerPicture')
+            ->add('costumerPicture', FileType::class, [
+                'mapped' => false
+            ])
             ->add('fidelityCard')
-            ->add('user')
+            // ->add('user')
             ->add('appointment')
         ;
     }
