@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AppointmentController extends AbstractController
 {
     /**
-     * @Route("/", name="appointment_index", methods={"GET"})
+     * @Route("/list", name="appointment_index", methods={"GET"})
      */
     public function index(AppointmentRepository $appointmentRepository): Response
     {

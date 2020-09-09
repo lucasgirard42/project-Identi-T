@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Date</th>
                 <th>Time_hour</th>
+                <th>Name</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{ appointment.id }}</td>
                 <td>{{ appointment.date ? appointment.date|date('Y-m-d') : '' }}</td>
                 <td>{{ appointment.timeHour ? appointment.timeHour|date('H:i:s') : '' }}</td>
+                <td>{{ appointment.Name }}</td>
                 <td>
                     <a href="{{ path('appointment_show', {'id': appointment.id}) }}">show</a>
                     <a href="{{ path('appointment_edit', {'id': appointment.id}) }}">edit</a>

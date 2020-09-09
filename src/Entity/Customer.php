@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CustomerRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -62,10 +64,32 @@ class Customer
      */
     private $user;
 
+    // /**
+    //  * @ORM\OneToOne(targetEntity=Appointment::class, cascade={"persist", "remove"})
+    //  */
+    // private $appointment;
+
     /**
-     * @ORM\OneToOne(targetEntity=Appointment::class, cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=Appointment::class, mappedBy="customer", orphanRemoval=true)
      */
-    private $appointment;
+    private $appointments;
+
+    // /**
+    //  * @ORM\OneToMany(targetEntity=Appointment::class, mappedBy="customer")
+    //  */
+    // private $customer;
+
+    // /**
+    //  * @ORM\OneToMany(targetEntity=Appointment::class, mappedBy="customer", orphanRemoval=true)
+    //  */
+    // private $customer;
+
+    public function __construct()
+    {
+        $this->customer = new ArrayCollection();
+        $this->apple = new ArrayCollection();
+        $this->appointments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -180,15 +204,113 @@ class Customer
         return $this;
     }
 
-    public function getAppointment(): ?Appointment
+    // public function getAppointment(): ?Appointment
+    // {
+    //     return $this->appointment;
+    // }
+
+    // public function setAppointment(?Appointment $appointment): self
+    // {
+    //     $this->appointment = $appointment;
+
+    //     return $this;
+    // }
+
+    // /**
+    //  * @return Collection|Appointment[]
+    //  */
+    // public function getCustomer(): Collection
+    // {
+    //     return $this->customer;
+    // }
+
+    // public function addCustomer(Appointment $customer): self
+    // {
+    //     if (!$this->customer->contains($customer)) {
+    //         $this->customer[] = $customer;
+    //         $customer->setCustomer($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeCustomer(Appointment $customer): self
+    // {
+    //     if ($this->customer->contains($customer)) {
+    //         $this->customer->removeElement($customer);
+    //         // set the owning side to null (unless already changed)
+    //         if ($customer->getCustomer() === $this) {
+    //             $customer->setCustomer(null);
+    //         }
+    //     }
+
+    //     return $this;
+    // }
+
+    // /**
+    //  * @return Collection|Appointment[]
+    //  */
+    // public function getApple(): Collection
+    // {
+    //     return $this->apple;
+    // }
+
+    // public function addApple(Appointment $apple): self
+    // {
+    //     if (!$this->apple->contains($apple)) {
+    //         $this->apple[] = $apple;
+    //         $apple->setCustomer2($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeApple(Appointment $apple): self
+    // {
+    //     if ($this->apple->contains($apple)) {
+    //         $this->apple->removeElement($apple);
+    //         // set the owning side to null (unless already changed)
+    //         if ($apple->getCustomer2() === $this) {
+    //             $apple->setCustomer2(null);
+    //         }
+    //     }
+
+    //     return $this;
+    // }
+
+    /**
+     * @return Collection|Appointment[]
+     */
+    public function getAppointments(): Collection
     {
-        return $this->appointment;
+        return $this->appointments;
     }
 
-    public function setAppointment(?Appointment $appointment): self
+    public function addAppointment(Appointment $appointment): self
     {
-        $this->appointment = $appointment;
+        if (!$this->appointments->contains($appointment)) {
+            $this->appointments[] = $appointment;
+            $appointment->setCustomer($this);
+        }
 
         return $this;
+    }
+
+    public function removeAppointment(Appointment $appointment): self
+    {
+        if ($this->appointments->contains($appointment)) {
+            $this->appointments->removeElement($appointment);
+            // set the owning side to null (unless already changed)
+            if ($appointment->getCustomer() === $this) {
+                $appointment->setCustomer(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public  function __toString()
+    {
+        return $this->getLastName();
     }
 }

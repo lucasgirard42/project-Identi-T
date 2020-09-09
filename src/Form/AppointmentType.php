@@ -14,6 +14,9 @@ class AppointmentType extends AbstractType
         $builder
             ->add('date')
             ->add('time_hour')
+            ->add('name')
+            ->add('customer')
+            
         ;
     }
 

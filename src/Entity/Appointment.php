@@ -39,6 +39,28 @@ class Appointment
      */
     private $package;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="appointments")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $customer;
+
+    // /**
+    //  * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="customer")
+    //  */
+    // private $customer;
+
+    // /**
+    //  * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="customer")
+    //  * @ORM\JoinColumn(nullable=false)
+    //  */
+    // private $customer;
+
     public function __construct()
     {
         $this->staff = new ArrayCollection();
@@ -135,4 +157,58 @@ class Appointment
 
         return $this;
     }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public  function __toString()
+    {
+        return $this->getName();
+    }
+
+    // public function getCustomer(): ?Customer
+    // {
+    //     return $this->customer;
+    // }
+
+    // public function setCustomer(?Customer $customer): self
+    // {
+    //     $this->customer = $customer;
+
+    //     return $this;
+    // }
+
+    // public function getCustomer2(): ?Customer
+    // {
+    //     return $this->customer2;
+    // }
+
+    // public function setCustomer2(?Customer $customer2): self
+    // {
+    //     $this->customer2 = $customer2;
+
+    //     return $this;
+    // }
+
+    public function getCustomer(): ?Customer
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer(?Customer $customer): self
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+    
 }
