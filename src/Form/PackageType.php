@@ -16,7 +16,7 @@ class PackageType extends AbstractType
             ->add('name')
             ->add('time')
             ->add('forGender')
-            ->add('appointment')
+            ->add('appointments')
         ;
     }
 

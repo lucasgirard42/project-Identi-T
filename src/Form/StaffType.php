@@ -22,7 +22,7 @@ class StaffType extends AbstractType
             ->add('phone')
             ->add('description')
             // ->add('user')
-            // ->add('appointment')
+            ->add('appointments')
         ;
     }
 

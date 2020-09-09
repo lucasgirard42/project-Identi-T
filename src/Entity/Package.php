@@ -37,10 +37,10 @@ class Package
      */
     private $forGender;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Appointment::class, inversedBy="package")
-     */
-    private $appointment;
+    // /**
+    //  * @ORM\ManyToOne(targetEntity=Appointment::class, inversedBy="package")
+    //  */
+    // private $appointment;
 
     public function getId(): ?int
     {
@@ -95,15 +95,5 @@ class Package
         return $this;
     }
 
-    public function getAppointment(): ?Appointment
-    {
-        return $this->appointment;
-    }
-
-    public function setAppointment(?Appointment $appointment): self
-    {
-        $this->appointment = $appointment;
-
-        return $this;
-    }
+    
 }

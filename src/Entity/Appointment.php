@@ -29,15 +29,7 @@ class Appointment
      */
     private $time_hour;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Staff::class, mappedBy="appointment")
-     */
-    private $staff;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Package::class, mappedBy="appointment")
-     */
-    private $package;
+    
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -50,20 +42,19 @@ class Appointment
      */
     private $customer;
 
-    // /**
-    //  * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="customer")
-    //  */
-    // private $customer;
+    /**
+     * @ORM\ManyToOne(targetEntity=Staff::class, inversedBy="appointments")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $staff;
 
-    // /**
-    //  * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="customer")
-    //  * @ORM\JoinColumn(nullable=false)
-    //  */
-    // private $customer;
+   
+
+    
 
     public function __construct()
     {
-        $this->staff = new ArrayCollection();
+        // $this->staff = new ArrayCollection();
         $this->package = new ArrayCollection();
     }
 
@@ -96,67 +87,9 @@ class Appointment
         return $this;
     }
 
-    /**
-     * @return Collection|Staff[]
-     */
-    public function getStaff(): Collection
-    {
-        return $this->staff;
-    }
+    
 
-    public function addStaff(Staff $staff): self
-    {
-        if (!$this->staff->contains($staff)) {
-            $this->staff[] = $staff;
-            $staff->setAppointment($this);
-        }
-
-        return $this;
-    }
-
-    public function removeStaff(Staff $staff): self
-    {
-        if ($this->staff->contains($staff)) {
-            $this->staff->removeElement($staff);
-            // set the owning side to null (unless already changed)
-            if ($staff->getAppointment() === $this) {
-                $staff->setAppointment(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Package[]
-     */
-    public function getPackage(): Collection
-    {
-        return $this->package;
-    }
-
-    public function addPackage(Package $package): self
-    {
-        if (!$this->package->contains($package)) {
-            $this->package[] = $package;
-            $package->setAppointment($this);
-        }
-
-        return $this;
-    }
-
-    public function removePackage(Package $package): self
-    {
-        if ($this->package->contains($package)) {
-            $this->package->removeElement($package);
-            // set the owning side to null (unless already changed)
-            if ($package->getAppointment() === $this) {
-                $package->setAppointment(null);
-            }
-        }
-
-        return $this;
-    }
+   
 
     public function getName(): ?string
     {
@@ -175,30 +108,7 @@ class Appointment
         return $this->getName();
     }
 
-    // public function getCustomer(): ?Customer
-    // {
-    //     return $this->customer;
-    // }
-
-    // public function setCustomer(?Customer $customer): self
-    // {
-    //     $this->customer = $customer;
-
-    //     return $this;
-    // }
-
-    // public function getCustomer2(): ?Customer
-    // {
-    //     return $this->customer2;
-    // }
-
-    // public function setCustomer2(?Customer $customer2): self
-    // {
-    //     $this->customer2 = $customer2;
-
-    //     return $this;
-    // }
-
+   
     public function getCustomer(): ?Customer
     {
         return $this->customer;
@@ -207,6 +117,18 @@ class Appointment
     public function setCustomer(?Customer $customer): self
     {
         $this->customer = $customer;
+
+        return $this;
+    }
+
+    public function getStaff(): ?Staff
+    {
+        return $this->staff;
+    }
+
+    public function setStaff(?Staff $staff): self
+    {
+        $this->staff = $staff;
 
         return $this;
     }

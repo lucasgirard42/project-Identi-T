@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\StaffRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -53,9 +55,19 @@ class Staff
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Appointment::class, inversedBy="staff")
+     * @ORM\OneToMany(targetEntity=Appointment::class, mappedBy="staff", orphanRemoval=true)
      */
-    private $appointment;
+    private $appointments;
+
+    public function __construct()
+    {
+        $this->appointments = new ArrayCollection();
+    }
+
+    // /**
+    //  * @ORM\ManyToOne(targetEntity=Appointment::class, inversedBy="staff")
+    //  */
+    // private $appointment;
 
     public function getId(): ?int
     {
@@ -146,15 +158,51 @@ class Staff
         return $this;
     }
 
-    public function getAppointment(): ?Appointment
+    // public function getAppointment(): ?Appointment
+    // {
+    //     return $this->appointment;
+    // }
+
+    // public function setAppointment(?Appointment $appointment): self
+    // {
+    //     $this->appointment = $appointment;
+
+    //     return $this;
+    // }
+
+    /**
+     * @return Collection|Appointment[]
+     */
+    public function getAppointments(): Collection
     {
-        return $this->appointment;
+        return $this->appointments;
     }
 
-    public function setAppointment(?Appointment $appointment): self
+    public function addAppointment(Appointment $appointment): self
     {
-        $this->appointment = $appointment;
+        if (!$this->appointments->contains($appointment)) {
+            $this->appointments[] = $appointment;
+            $appointment->setStaff($this);
+        }
 
         return $this;
+    }
+
+    public function removeAppointment(Appointment $appointment): self
+    {
+        if ($this->appointments->contains($appointment)) {
+            $this->appointments->removeElement($appointment);
+            // set the owning side to null (unless already changed)
+            if ($appointment->getStaff() === $this) {
+                $appointment->setStaff(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public  function __toString()
+    {
+        return $this->getFirstName();
     }
 }
