@@ -18,6 +18,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/staff")
+ * @IsGranted("ROLE_STAFF")
  */
 class StaffController extends AbstractController
 {

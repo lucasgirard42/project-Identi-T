@@ -20,8 +20,8 @@
                 <td>{{ user.password }}</td>
             </tr>
             <tr>
-                <th>IsAdmin</th>
-                <td>{{ user.isAdmin ? 'Yes' : 'No' }}</td>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
             </tr>
         </tbody>
     </table>

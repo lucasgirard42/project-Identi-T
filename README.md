@@ -33,3 +33,9 @@ php bin/console make:voter
 ```
 ## liens vers la doc de symfony
     https://symfony.com/doc/current/controller/upload_file.html#creating-an-uploader-service
+
+## add Bootstrap
+```shell
+    npm add bootstrap
+    npm add jquery popper.js
+```

@@ -33,10 +33,7 @@ class User implements UserInterface
      */
     private $password;
 
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private $isAdmin;
+  
 
     /**
      * @ORM\OneToOne(targetEntity=Customer::class, mappedBy="user", cascade={"persist", "remove"})
@@ -47,6 +44,11 @@ class User implements UserInterface
      * @ORM\OneToOne(targetEntity=Staff::class, mappedBy="user", cascade={"persist", "remove"})
      */
     private $staff;
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
 
     public function getId(): ?int
     {
@@ -79,16 +81,19 @@ class User implements UserInterface
      * @see UserInterface
      */
     public function getRoles(): array
-    {
+    {     
         
-        // guarantee every user at least has ROLE_USER
+         $roles = $this->roles; 
+        //  guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
+        
+         return array_unique($roles);
+    }
 
-        if ($this->getIsAdmin())
-        {
-            $roles[] = 'ROLE_ADMIN';
-        }
-        return array_unique($roles);
+    public function setRoles(array $roles): self
+    {   
+        $this->roles = $roles;
+        return $this;
     }
 
  
@@ -124,17 +129,7 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getIsAdmin(): ?bool
-    {
-        return $this->isAdmin;
-    }
-
-    public function setIsAdmin(?bool $isAdmin): self
-    {
-        $this->isAdmin = $isAdmin;
-
-        return $this;
-    }
+    
 
     public function getCustomer(): ?Customer      // ajout fonction dans customercontroller newUser
     {
