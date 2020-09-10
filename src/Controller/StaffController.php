@@ -120,6 +120,7 @@ class StaffController extends AbstractController
 
        return $this->render('staff/show.html.twig', [
            'staff' => $staff,
+           'appointments' => $staff->getAppointments(),
        ]);
    }
 

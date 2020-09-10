@@ -38,6 +38,14 @@
         </tbody>
     </table>
 
+    <h3>RDV</h3> 
+    {% for appointment in appointments %}
+        
+            <p>le {{appointment.date ? appointment.date|date('Y-m-d') : '' }} à
+            {{ appointment.timeHour ? appointment.timeHour|date('H:i') : '' }} avec
+            {{appointment.customer}}</p>
+    {% endfor %}   
+
     <a href="{{ path('staff_index') }}">back to list</a>
 
     <a href="{{ path('staff_edit', {'id': staff.id}) }}">edit</a>

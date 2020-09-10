@@ -39,7 +39,7 @@
                 <th>CostumerPicture</th>
                 {# <td>{{ customer.costumerPicture }}</td> #}
                 <td><a href="{{ asset('uploads/' ~ customer.costumerPicture) }}">your picture</a><td>
-                <img src="{{ asset('uploads/' ~ customer.costumerPicture) }}" />
+                {# <img src="{{ asset('uploads/' ~ customer.costumerPicture) }}" /> #}
 
                 
             </tr>
@@ -49,6 +49,20 @@
             </tr>
         </tbody>
     </table>
+      
+        <h3>RDV</h3> 
+    {% for appointment in appointments %}
+        
+            <p>le {{appointment.date ? appointment.date|date('Y-m-d') : '' }} à
+            {{ appointment.timeHour ? appointment.timeHour|date('H:i') : '' }} avec
+            {{appointment.staff}}</p>   
+        
+    {% endfor %}
+
+    {# {% for staff in staffs %}
+
+    {% endfor %} #}
+    
 
     <a href="{{ path('customer_index') }}">back to list</a>
 

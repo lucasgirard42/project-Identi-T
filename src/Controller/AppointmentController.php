@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 /**
  * @Route("/appointment")
@@ -17,6 +19,7 @@ class AppointmentController extends AbstractController
 {
     /**
      * @Route("/list", name="appointment_index", methods={"GET"})
+     * 
      */
     public function index(AppointmentRepository $appointmentRepository): Response
     {
@@ -27,6 +30,7 @@ class AppointmentController extends AbstractController
 
     /**
      * @Route("/new", name="appointment_new", methods={"GET","POST"})
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
      */
     public function new(Request $request): Response
     {
@@ -48,6 +52,8 @@ class AppointmentController extends AbstractController
         ]);
     }
 
+    
+
     /**
      * @Route("/{id}", name="appointment_show", methods={"GET"})
      */
@@ -60,6 +66,7 @@ class AppointmentController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="appointment_edit", methods={"GET","POST"})
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
      */
     public function edit(Request $request, Appointment $appointment): Response
     {
@@ -80,6 +87,7 @@ class AppointmentController extends AbstractController
 
     /**
      * @Route("/{id}", name="appointment_delete", methods={"DELETE"})
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
      */
     public function delete(Request $request, Appointment $appointment): Response
     {

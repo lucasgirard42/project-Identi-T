@@ -103,10 +103,7 @@ class Appointment
         return $this;
     }
 
-    public  function __toString()
-    {
-        return $this->getName();
-    }
+    
 
    
     public function getCustomer(): ?Customer
@@ -131,6 +128,11 @@ class Appointment
         $this->staff = $staff;
 
         return $this;
+    }
+    
+    public  function __toString()
+    {
+        return $this->getName();
     }
     
 }

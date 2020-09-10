@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Customer;
+use App\Entity\Appointment;
 use App\Entity\User;
 use App\Form\CustomerType;
 use App\Repository\CustomerRepository;
@@ -13,6 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Repository\AppointmentRepository;
+use App\Repository\StaffRepository;
 
 /**
  * @Route("/customer")
@@ -107,6 +110,10 @@ class CustomerController extends AbstractController
      */
    public function showUser(): Response         //faire une fontion show>USer
    {   
+       
+       
+       
+
        /** @var User $user */
        $user = $this->getUser();
 
@@ -119,6 +126,8 @@ class CustomerController extends AbstractController
 
        return $this->render('customer/show.html.twig', [
            'customer' => $customer,
+           'appointments' =>$customer->getAppointments(),
+        
        ]);
    }
 

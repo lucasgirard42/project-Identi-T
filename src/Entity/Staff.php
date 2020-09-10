@@ -64,11 +64,7 @@ class Staff
         $this->appointments = new ArrayCollection();
     }
 
-    // /**
-    //  * @ORM\ManyToOne(targetEntity=Appointment::class, inversedBy="staff")
-    //  */
-    // private $appointment;
-
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -158,18 +154,7 @@ class Staff
         return $this;
     }
 
-    // public function getAppointment(): ?Appointment
-    // {
-    //     return $this->appointment;
-    // }
-
-    // public function setAppointment(?Appointment $appointment): self
-    // {
-    //     $this->appointment = $appointment;
-
-    //     return $this;
-    // }
-
+   
     /**
      * @return Collection|Appointment[]
      */

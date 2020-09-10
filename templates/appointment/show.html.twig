@@ -20,8 +20,16 @@
                 <td>{{ appointment.timeHour ? appointment.timeHour|date('H:i:s') : '' }}</td>
             </tr>
              <tr>
-                <th>Name</th>
+                <th>commentary</th>
                 <td>{{ appointment.Name }}</td>
+            </tr>
+            <tr>
+                <th>staff</th>
+                <td>{{ appointment.staff }}</td>
+            </tr>
+            <tr>
+                <th>customer</th>
+                <td>{{ appointment.customer }}</td>
             </tr>
         </tbody>
     </table>
