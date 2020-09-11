@@ -34,7 +34,7 @@ class Appointment
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $name;
+    private $commentary;
 
     /**
      * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="appointments")
@@ -91,14 +91,14 @@ class Appointment
 
    
 
-    public function getName(): ?string
+    public function getCommentary(): ?string
     {
-        return $this->name;
+        return $this->commentary;
     }
 
-    public function setName(?string $name): self
+    public function setCommentary(?string $commentary): self
     {
-        $this->name = $name;
+        $this->commentary = $commentary;
 
         return $this;
     }
@@ -132,7 +132,7 @@ class Appointment
     
     public  function __toString()
     {
-        return $this->getName();
+        return $this->getCommentary();
     }
     
 }

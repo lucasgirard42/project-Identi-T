@@ -11,7 +11,7 @@
                 <th>Id</th>
                 <th>Date</th>
                 <th>Time_hour</th>
-                <th>commantaire</th>
+                <th>commentary</th>
                 <th>staff</th>
                 <th>customer</th>
             </tr>
@@ -22,7 +22,7 @@
                 <td>{{ appointment.id }}</td>
                 <td>{{ appointment.date ? appointment.date|date('Y-m-d') : '' }}</td>
                 <td>{{ appointment.timeHour ? appointment.timeHour|date('H:i:s') : '' }}</td>
-                <td>{{ appointment.Name }}</td>
+                <td>{{ appointment.commentary }}</td>
                 <td>{{ appointment.staff }}</td>
                 <td>{{ appointment.customer }}</td>
 

@@ -39,3 +39,6 @@ php bin/console make:voter
     npm add bootstrap
     npm add jquery popper.js
 ```
+
+## format document
+mettre en forme reindent selected lines

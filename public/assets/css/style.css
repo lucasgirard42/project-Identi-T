@@ -1,0 +1,55 @@
+.logoIdentitY{
+    height: 100px;
+}
+
+
+.book_btn{
+    background: goldenrod;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid transparent;
+  color: #fff;
+  padding: 19px 43px 23px 43px;
+  font-family: "Lato", sans-serif;
+  display: inline-block;
+  line-height: 1;
+}
+
+.book_btn:hover{
+    background: transparent;
+  color: goldenrod;
+  border: 1px solid goldenrod;
+
+}
+
+.about-us{
+    background-color: rgba(218, 165, 32, 0.034);
+}
+
+/* .textAboutUs{
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.21); 
+box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.21);
+} */
+
+#mathieu-about-us{
+    /* height: 50%; */
+    width: 50%;
+}
+
+.reno-about-us{
+    width: 50%;
+}
+
+.card-img-top:hover{
+    transition: 0.3s;
+    -moz-transform: scale(1.1);
+-webkit-transform: scale(1.1);
+-o-transform: scale(1.1);
+-ms-transform: scale(1.1);
+transform: scale(1.1);
+
+}
+.card-body{
+    background-color:  rgba(218, 165, 32, 0.034);
+}
+

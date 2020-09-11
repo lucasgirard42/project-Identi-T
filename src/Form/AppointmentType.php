@@ -21,7 +21,7 @@ class AppointmentType extends AbstractType
             ->add('time_hour')
             ->add('customer')
             ->add('staff')
-            ->add('name')
+            ->add('commentary')
             
         ;
     }

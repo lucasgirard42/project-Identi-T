@@ -19,7 +19,7 @@ class AppointmentController extends AbstractController
 {
     /**
      * @Route("/list", name="appointment_index", methods={"GET"})
-     * 
+     *@IsGranted("ROLE_STAFF")
      */
     public function index(AppointmentRepository $appointmentRepository): Response
     {
