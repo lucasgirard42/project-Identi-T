@@ -27,6 +27,8 @@
   <a href="{{ path('user_index') }}">user list</a>
   <a href="{{ path('appointment_index') }}">appointment list</a>
   <a href="{{ path('appointment_new') }}">appointment new</a>
+  <a href="{{ path('home') }}">home</a>
+
   {% endblock  %}
   
   <!-- NAV BAR  -->
@@ -54,7 +56,7 @@
             </ul>
             <div class="book_room">
               <div class="book_btn">
-                <a class="popup-with-form text-white" role="button" href="...">Appointment</a>
+                <a class="popup-with-form text-white" role="button" href="{{ path('appointment_new') }}">Appointment</a>
               </div>
             </div>
           </div>
