@@ -44,6 +44,9 @@
             <p>le {{appointment.date ? appointment.date|date('Y-m-d') : '' }} à
             {{ appointment.timeHour ? appointment.timeHour|date('H:i') : '' }} avec
             {{appointment.customer}}</p>
+    <h4>Commentary</h4>
+    <p>{{ appointment.commentary }}</p>
+
     {% endfor %}   
 
     <a href="{{ path('staff_index') }}">back to list</a>

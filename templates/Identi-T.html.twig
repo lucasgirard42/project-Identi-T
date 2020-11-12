@@ -126,33 +126,17 @@
         </div>
       </div>
       <div class="row justify-content-center mt-5">
+      {% for staff in staffs %}
         <div class="col-lg-4 col-md-6">
           <div class="card" style="width: 18rem; border: none;">
             <img src="../public/uploads/reno-about-us.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title text-center">Lucas</h5>
-              <p class="card-text text-center">junior staff</p>
+              <h5 class="card-title text-center">{{ staff.firstName }} {{ staff.lastName }}</h5>
+              <p class="card-text text-center">{{ staff.description }}</p>
             </div>
           </div>
           </div>
-        <div class="col-lg-4 col-md-6">
-        <div class="card" style="width: 18rem; border: none;">
-          <img src="../public/uploads/reno-about-us.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title text-center">Reno</h5>
-            <p class="card-text text-center">pro staff</p>
-          </div>
-        </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card" style="width: 18rem; border: none;">
-            <img src="../public/uploads/reno-about-us.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title text-center">Mathieu</h5>
-              <p class="card-text text-center">pro staff</p>
-            </div>
-          </div>
-          </div>
+          {% endfor %}
       </div>
     </div>
 
