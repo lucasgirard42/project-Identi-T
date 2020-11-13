@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New PackageInfo{% endblock %}
+
+{% block body %}
+    <h1>Create new PackageInfo</h1>
+
+    {{ include('package_info/_form.html.twig') }}
+
+    <a href="{{ path('package_info_index') }}">back to list</a>
+{% endblock %}

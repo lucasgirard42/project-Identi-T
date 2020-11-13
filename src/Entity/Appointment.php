@@ -50,6 +50,8 @@ class Appointment
 
    
 
+   
+
     
 
     public function __construct()
@@ -129,6 +131,8 @@ class Appointment
 
         return $this;
     }
+
+    
     
     public  function __toString()
     {

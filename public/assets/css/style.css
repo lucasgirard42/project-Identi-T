@@ -52,9 +52,43 @@ box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.21);
 /* END ABOUT-US */
 
 /* SECTION OUR-SERVICES */
+.ourServices{
+    margin: auto;
+}
 
+.card.ourServices{
+    margin-bottom: 100px;
+}
 
+/* END OUR-SERVICES */
 
+/* SECTION PRISING  */
+
+.container-fluid.ourPrising{
+    position: relative;
+  background: #fdf9f6;
+  padding-top: 144px;
+  padding-bottom: 100px;
+  z-index: 0;  position: relative;
+  background: #fdf9f6;
+  padding-top: 144px;
+  padding-bottom: 100px;
+  z-index: 0;
+}
+
+.container-fluid.ourPrising::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: '';
+    background-image: url(../../uploads/prise_bg.png);
+    height: 100%;
+    width: 100%;
+    opacity: .04;
+    z-index: -1;
+  }
+
+ 
 /* SECTION STAFF */
 
 .card-img-top:hover{
@@ -66,7 +100,149 @@ box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.21);
 transform: scale(1.1);
 
 }
-.card-body{
-    background-color:  rgba(218, 165, 32, 0.034);
+
+.card.staffCards{
+    margin-bottom: 100px;
 }
 
+
+
+
+/* SECTION MAKE APPOINTMENT */
+
+ 
+
+
+.make_apppointment_area {
+    padding-top: 150px;
+    padding-bottom: 120px;
+    background: #fdf9f6;
+  }
+  
+  @media (max-width: 767px) {
+    
+    .make_apppointment_area {
+      padding-top: 60px;
+      padding-bottom: 30px;
+    }
+  }
+  
+ 
+  .make_apppointment_area .appoint_ment_form {
+    margin-bottom: 30px;
+  }
+  
+ 
+  .make_apppointment_area .appoint_ment_form form .single_field {
+    margin-bottom: 32px;
+  }
+  
+
+  .make_apppointment_area .appoint_ment_form form .single_field input, .make_apppointment_area .appoint_ment_form form .single_field textarea {
+    width: 100%;
+    border: 0;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #c1c1c1;
+    padding-left: 10px;
+    height: 50px;
+    font-family: "Lato", sans-serif;
+    color: #000;
+    background: transparent;
+  }
+  
+ 
+  .make_apppointment_area .appoint_ment_form form .single_field input::placeholder, .make_apppointment_area .appoint_ment_form form .single_field textarea::placeholder {
+    color: #96989a;
+    font-weight: 400;
+    font-family: "Lato", sans-serif;
+  }
+  
+  
+  .make_apppointment_area .appoint_ment_form form .single_field input:focus, .make_apppointment_area .appoint_ment_form form .single_field textarea:focus {
+    outline: none;
+  }
+  
+
+  .make_apppointment_area .appoint_ment_form form .single_field textarea {
+    resize: none;
+    margin-top: 41px;
+    padding: 11px 20px 14px 10px;
+  }
+  
+ 
+  .make_apppointment_area .appoint_ment_form form .single_field:last-child {
+    margin-bottom: 0;
+  }
+  
+
+  .make_apppointment_area .appoint_ment_form form button {
+    background: goldenrod;
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid transparent;
+    color: #fff;
+    padding: 19px 43px 23px 43px;
+    font-family: "Lato", sans-serif;
+    display: inline-block;
+    line-height: 1;
+  }
+
+  .make_apppointment_area .appoint_ment_form form button:hover{
+    background: transparent;
+    color: goldenrod;
+    border: 1px solid goldenrod;
+    transition: .3s;
+    cursor: pointer;
+  }
+  
+  
+
+  .make_apppointment_area .appoint_ment_form form p {
+    margin-top: 17px;
+    margin-bottom: 40px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #464444;
+    line-height: 30px;
+  }
+  
+  
+  .make_apppointment_area .appointMent_info .single_appontment {
+    margin-bottom: 36px;
+  }
+  
+  
+  .make_apppointment_area .appointMent_info .single_appontment h4 {
+    font-size: 18px;
+    color: #4a4948;
+    font-weight: 400;
+  }
+  
+
+  .make_apppointment_area .appointMent_info .single_appontment p {
+    font-size: 16px;
+    line-height: 30px;
+    color: #7f7f7f;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+  
+  
+  .make_apppointment_area .appointMent_info .single_appontment p span {
+    flex: 50% 0 0;
+  }
+
+  /* END MAKE APPOINTMENT */
+
+  /* SECTION FOOTER */
+
+  footer{
+      background-color: black;
+      color: white;
+      
+  }
+
+  .links{
+      list-style-type: none;
+      color: gray;
+  }

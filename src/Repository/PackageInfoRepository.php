@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Package;
+use App\Entity\PackageInfo;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Package|null find($id, $lockMode = null, $lockVersion = null)
- * @method Package|null findOneBy(array $criteria, array $orderBy = null)
- * @method Package[]    findAll()
- * @method Package[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method PackageInfo|null find($id, $lockMode = null, $lockVersion = null)
+ * @method PackageInfo|null findOneBy(array $criteria, array $orderBy = null)
+ * @method PackageInfo[]    findAll()
+ * @method PackageInfo[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PackageRepository extends ServiceEntityRepository
+class PackageInfoRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Package::class);
+        parent::__construct($registry, PackageInfo::class);
     }
 
     // /**
-    //  * @return Package[] Returns an array of Package objects
+    //  * @return PackageInfo[] Returns an array of PackageInfo objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class PackageRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Package
+    public function findOneBySomeField($value): ?PackageInfo
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

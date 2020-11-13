@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PackageInfo index{% endblock %}
+
+{% block body %}
+    <h1>PackageInfo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Price</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>PackagePicture</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for package_info in package_infos %}
+            <tr>
+                <td>{{ package_info.id }}</td>
+                <td>{{ package_info.price }}</td>
+                <td>{{ package_info.name }}</td>
+                <td>{{ package_info.description }}</td>
+                <td>{{ package_info.packagePicture }}</td>
+                <td>
+                    <a href="{{ path('package_info_show', {'id': package_info.id}) }}">show</a>
+                    <a href="{{ path('package_info_edit', {'id': package_info.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('package_info_new') }}">Create new</a>
+{% endblock %}
