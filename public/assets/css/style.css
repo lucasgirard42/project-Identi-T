@@ -1,7 +1,11 @@
+/* SECTION HEADER */
 .logoIdentitY{
     height: 100px;
 }
 
+.navbar{
+   background-color: rgb(0, 0, 0);
+}
 
 .book_btn{
     background: goldenrod;
@@ -22,6 +26,11 @@
 
 }
 
+/* END HEADER */
+
+
+/* SECTION ABOUT-US */
+
 .about-us{
     background-color: rgba(218, 165, 32, 0.034);
 }
@@ -39,6 +48,14 @@ box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.21);
 .reno-about-us{
     width: 50%;
 }
+
+/* END ABOUT-US */
+
+/* SECTION OUR-SERVICES */
+
+
+
+/* SECTION STAFF */
 
 .card-img-top:hover{
     transition: 0.3s;
